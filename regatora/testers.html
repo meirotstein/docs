@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>רגע תורה | דף מידע לבודקים</title>
+  <meta name="description" content="דף מידע לבודקי אפליקציית רגע תורה: מטרות המוצר, מצב נוכחי, מסכים עיקריים, גרסאות ופרטי קשר.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Frank+Ruhl+Libre:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f1e6;
+      --bg-soft: #fffaf3;
+      --panel: rgba(255, 252, 246, 0.9);
+      --panel-strong: #ffffff;
+      --ink: #172235;
+      --muted: #59667a;
+      --line: rgba(23, 34, 53, 0.1);
+      --brand: #1f6fb2;
+      --brand-deep: #154f83;
+      --accent: #2d8b57;
+      --warm: #d79a37;
+      --shadow: 0 18px 44px rgba(23, 34, 53, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
+      --shell: min(1080px, calc(100% - 28px));
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Assistant", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(31, 111, 178, 0.14), transparent 22rem),
+        radial-gradient(circle at bottom left, rgba(45, 139, 87, 0.12), transparent 24rem),
+        linear-gradient(180deg, #fbf7ef 0%, var(--bg) 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .shell {
+      width: var(--shell);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      padding: 14px 0 0;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      box-shadow: 0 12px 24px rgba(21, 79, 131, 0.2);
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-text strong,
+    .brand-text span {
+      display: block;
+    }
+
+    .brand-text strong {
+      font-size: 1rem;
+    }
+
+    .brand-text span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .nav {
+      display: none;
+      flex-wrap: wrap;
+      gap: 14px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.96rem;
+    }
+
+    .hero {
+      padding: 18px 0 20px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px 18px;
+      border-radius: 34px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(251, 246, 237, 0.92));
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 28px 60px rgba(23, 34, 53, 0.11);
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .hero-card::before {
+      width: 240px;
+      height: 240px;
+      top: -90px;
+      left: -80px;
+      background: radial-gradient(circle, rgba(31, 111, 178, 0.14), transparent 70%);
+    }
+
+    .hero-card::after {
+      width: 260px;
+      height: 260px;
+      bottom: -120px;
+      right: -80px;
+      background: radial-gradient(circle, rgba(45, 139, 87, 0.12), transparent 70%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(31, 111, 178, 0.1);
+      color: var(--brand-deep);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    h1,
+    h2 {
+      font-family: "Frank Ruhl Libre", serif;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.25rem, 10vw, 4.4rem);
+      line-height: 1.02;
+    }
+
+    .hero-lead {
+      margin: 16px 0 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.08rem;
+      max-width: 42rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      text-align: center;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
+      box-shadow: 0 16px 28px rgba(21, 79, 131, 0.25);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+    }
+
+    .button-muted {
+      background: rgba(89, 102, 122, 0.08);
+      color: var(--muted);
+      border: 1px dashed rgba(89, 102, 122, 0.28);
+    }
+
+    .hero-meta,
+    .goals-grid,
+    .status-grid,
+    .version-grid,
+    .contact-grid,
+    .screens-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .hero-meta {
+      margin-top: 20px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .meta-card,
+    .card,
+    .screen-card,
+    .version-card,
+    .contact-card {
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.82);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .meta-card {
+      padding: 16px;
+    }
+
+    .meta-card strong,
+    .meta-card span {
+      display: block;
+    }
+
+    .meta-card strong {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+    }
+
+    .meta-card span {
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .section {
+      padding: 14px 0;
+    }
+
+    .section-header {
+      margin-bottom: 14px;
+    }
+
+    .section-header h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 7vw, 3rem);
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .card {
+      padding: 20px 18px;
+    }
+
+    .card h3,
+    .screen-card h3,
+    .version-card h3,
+    .contact-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.28rem;
+    }
+
+    .card p,
+    .card li,
+    .screen-card p,
+    .version-card p,
+    .contact-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .list {
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .list li {
+      position: relative;
+      padding-right: 18px;
+    }
+
+    .list li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--brand);
+      position: absolute;
+      top: 0.7em;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    .goals-grid,
+    .status-grid,
+    .version-grid,
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .screens-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .screen-card img {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      object-fit: contain;
+      object-position: center top;
+      background: #ece7df;
+      padding: 12px;
+    }
+
+    .screen-copy {
+      padding: 16px 16px 18px;
+    }
+
+    .version-card,
+    .contact-card {
+      padding: 18px;
+    }
+
+    .version-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      margin-bottom: 10px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: #fff;
+      background: linear-gradient(135deg, var(--warm) 0%, #b97112 100%);
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-line:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .contact-label {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .contact-value {
+      text-align: left;
+      direction: ltr;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 16px 0 42px;
+    }
+
+    .footer-card {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      color: var(--muted);
+      line-height: 1.8;
+      box-shadow: var(--shadow);
+    }
+
+    .footer-card a {
+      color: var(--brand-deep);
+      font-weight: 700;
+    }
+
+    @media (min-width: 760px) {
+      .topbar {
+        padding-top: 18px;
+      }
+
+      .hero-card {
+        padding: 34px 30px;
+      }
+
+      .nav {
+        display: flex;
+      }
+
+      .hero-meta,
+      .goals-grid,
+      .status-grid,
+      .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .version-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .screens-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-meta {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <div class="brand">
+        <img src="assets/app-icon-512.png" alt="אייקון רגע תורה">
+        <div class="brand-text">
+          <strong>רגע תורה</strong>
+          <span>דף מידע לבודקים</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#goals">מטרת האפליקציה</a>
+        <a href="#status">מצב נוכחי</a>
+        <a href="#screens">צילומי מסך</a>
+        <a href="#versions">שינויים לפי גרסה</a>
+        <a href="#contact">יצירת קשר</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell">
+        <div class="hero-card">
+          <span class="eyebrow">לבודקי האפליקציה</span>
+          <h1>רגע תורה נועדה להכניס רגע קצר של לימוד לתוך שימוש יומיומי בטלפון</h1>
+          <p class="hero-lead">
+            זהו דף מידע תמציתי עבור בדיקות, לא דף שיווקי. המטרה היא להסביר מה האפליקציה מנסה לעשות, מה כבר עובד היום, מה עוד דורש בדיקה, ואיך אפשר להעביר משוב או תקלות.
+          </p>
+          <div class="actions">
+            <a class="button button-primary" href="#contact">שליחת משוב למפתח</a>
+            <a class="button button-secondary" href="regatorah-privacy-policy.html">מדיניות פרטיות</a>
+          </div>
+          <div class="hero-meta">
+            <div class="meta-card">
+              <strong>פלטפורמה</strong>
+              <span>Android בלבד בשלב זה</span>
+            </div>
+            <div class="meta-card">
+              <strong>גרסה נוכחית</strong>
+              <span>0.1.4</span>
+            </div>
+            <div class="meta-card">
+              <strong>תוכן לימוד</strong>
+              <span>חומש עם רש״י ותהילים</span>
+            </div>
+            <div class="meta-card">
+              <strong>מיקוד הבדיקה</strong>
+              <span>טריגר, התראה, וכניסה למסך הלימוד</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="goals">
+      <div class="shell">
+        <!-- Based on product vision and phase-1 scope notes in agent-docs/1_rega_tora_vision_and_phase_1_plan.md -->
+        <div class="section-header">
+          <h2>מטרת האפליקציה</h2>
+          <p>הרעיון המרכזי הוא לא להילחם בשימוש בטלפון אלא להפוך רגעי הסחת דעת להזדמנויות קטנות ללימוד קבוע.</p>
+        </div>
+        <div class="goals-grid">
+          <article class="card">
+            <h3>מה האפליקציה מנסה להשיג</h3>
+            <ul class="list">
+              <li>לעזור ליצור קביעות בלימוד תורה בתוך שגרת היום.</li>
+              <li>להציג תזכורת קצרה כשנפתחת אפליקציה שנבחרה מראש.</li>
+              <li>לאפשר חזרה מהירה לנקודת הלימוד האחרונה בלי להתחיל מחדש.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>מה בודקים בפועל בגרסה הזו</h3>
+            <ul class="list">
+              <li>בחירת אפליקציות שמעוררות טריגר.</li>
+              <li>קבלת התראה בזמן סביר לאחר פתיחת אפליקציה נבחרת.</li>
+              <li>פתיחת מסלול הלימוד השמור, חומש או תהילים, מהמקום האחרון.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="status">
+      <div class="shell">
+        <!-- Based on current implementation and outstanding-work notes across agent-docs/*.md -->
+        <div class="section-header">
+          <h2>מצב נוכחי</h2>
+          <p>כאן מרוכזת תמונת מצב קצרה של מה שכבר קיים באפליקציה ומה עדיין דורש בדיקה ממוקדת.</p>
+        </div>
+        <div class="status-grid">
+          <article class="card">
+            <h3>מה כבר קיים ועובד</h3>
+            <ul class="list">
+              <li>בחירת אפליקציות מותקנות מהמכשיר ושמירה מקומית של הבחירה.</li>
+              <li>ניטור פתיחת אפליקציות נבחרות והתראות עם כניסה למסך הלימוד.</li>
+              <li>מסך חומש עם רש״י המבוסס על תוכן אופליין ושמירת מיקום.</li>
+              <li>מסך תהילים עם ניווט, שמירת מיקום, וסימון פרקי היום.</li>
+              <li>מסך פרטיות והסכמה לפני הפעלת הניטור.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>מה עדיין חשוב לבדוק</h3>
+            <ul class="list">
+              <li>האם תהליך ההגדרה הראשוני מובן ונוח למשתמש חדש.</li>
+              <li>האם ההתראות אמינות במכשירים שונים ובלי ספאם.</li>
+              <li>האם נשלחים למסך הנכון לפי מסלול הלימוד שנבחר.</li>
+              <li>האם יש מקרים שבהם הרשאות או מצב סוללה שוברים את הזרימה.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="screens">
+      <div class="shell">
+        <!-- Uses existing screenshots and artwork from public/assets and public/play-store -->
+        <div class="section-header">
+          <h2>צילומי מסך</h2>
+          <p>מסכים עיקריים שממחישים איפה פוגשים את הזרימה המרכזית של האפליקציה.</p>
+        </div>
+        <div class="screens-grid">
+          <article class="screen-card">
+            <img src="assets/home-screen.jpeg" alt="מסך הבית של רגע תורה">
+            <div class="screen-copy">
+              <h3>מסך הבית</h3>
+              <p>נקודת הכניסה למסלולי הלימוד ולמעבר להגדרות.</p>
+            </div>
+          </article>
+          <article class="screen-card">
+            <img src="assets/chumash-screen.jpeg" alt="מסך חומש עם רש״י">
+            <div class="screen-copy">
+              <h3>חומש עם רש״י</h3>
+              <p>קריאה רציפה, ניווט, ושמירת מיקום ללימוד הבא.</p>
+            </div>
+          </article>
+          <article class="screen-card">
+            <img src="assets/screenshot-02-learning.png" alt="צילום מסך נוסף של הלימוד">
+            <div class="screen-copy">
+              <h3>זרימת הלימוד</h3>
+              <p>תצוגת לימוד נוספת שממחישה את האופי השקט והקריא של המסך.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="versions">
+      <div class="shell">
+        <div class="section-header">
+          <h2>שינויים לפי גרסה</h2>
+          <p>סיכום קצר של השינויים האחרונים, כדי שבודקים ידעו במה להתמקד בכל סבב בדיקה.</p>
+        </div>
+        <div class="version-grid">
+          <article class="version-card">
+            <div class="version-tag">0.1.4</div>
+            <h3>פוקוס על יציבות ובדיקות</h3>
+            <p>נוספה אפשרות לוגים ושליחתם מדף פיתוח, עודכנה הגרסה, ובוצעו ליטושים במסך הבית ובהצגת הזרימה.</p>
+          </article>
+          <article class="version-card">
+            <div class="version-tag">0.1.3</div>
+            <h3>שיפורי קריאה וניווט</h3>
+            <p>נוספו הסכמה לפרטיות, טיפול בפרשות מחוברות, סימון יומי בתהילים ועליות בחומש, ותיקוני קפיצות טקסט.</p>
+          </article>
+          <article class="version-card">
+            <div class="version-tag">0.1.2 ומטה</div>
+            <h3>השלמת ה־MVP</h3>
+            <p>נכנסו תמיכת תהילים, שמירת מיקום לפי מסלול, בדיקות יחידה ובדיקות ויזואליות, ועיצוב ההתראות והמעקב.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="shell">
+        <div class="section-header">
+          <h2>יצירת קשר ומשוב</h2>
+          <p>אם זיהיתם תקלה, התנהגות לא צפויה, או נקודת חיכוך, עדיף לשלוח תיאור קצר עם המכשיר, גרסת האנדרואיד, ומה בדיוק קרה.</p>
+        </div>
+        <div class="contact-grid">
+          <article class="contact-card">
+            <h3>פרטי המפתח</h3>
+            <div class="contact-line">
+              <span class="contact-label">אימייל</span>
+              <a class="contact-value" href="mailto:meir@rotstein.co.il">meir@rotstein.co.il</a>
+            </div>
+            <div class="contact-line">
+              <span class="contact-label">WhatsApp</span>
+              <a class="contact-value" href="https://wa.me/972547488557">054-7488557</a>
+            </div>
+            <div class="contact-line">
+              <span class="contact-label">מדיניות פרטיות</span>
+              <a class="contact-value" href="regatorah-privacy-policy.html">פתיחת המסמך</a>
+            </div>
+          </article>
+          <article class="contact-card">
+            <h3>טופס משוב</h3>
+            <p>המקום הזה מוכן לקישור ישיר ל־Google Form עבור משוב מסודר מהבודקים.</p>
+            <div class="actions">
+              <a class="button button-muted" href="#contact">להוסיף כאן את קישור הטופס</a>
+              <a class="button button-secondary" href="mailto:meir@rotstein.co.il?subject=%D7%9E%D7%A9%D7%95%D7%91%20%D7%A2%D7%9C%20%D7%A8%D7%92%D7%A2%20%D7%AA%D7%95%D7%A8%D7%94">שליחת משוב במייל</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <!-- Summary text is derived from the vision, home/settings, Chumash, Tehilim, and future-tasks docs in agent-docs/ -->
+      <div class="footer-card">
+        הדף נכתב עבור בודקי האפליקציה כדי לרכז במקום אחד את מטרת המוצר, הזרימה העיקרית, מצב העבודה הנוכחי ודרכי יצירת הקשר.
+        אפשר לעבור גם אל <a href="index.html">העמוד הראשי</a>.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
