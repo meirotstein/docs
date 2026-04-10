@@ -1,2 +1,2 @@
 # docs
-Public docs relatde for meirotstein projects
+Public docs related for meirotstein projects
