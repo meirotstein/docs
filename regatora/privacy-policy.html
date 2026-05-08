@@ -125,7 +125,7 @@
     <section class="hero">
       <p class="eyebrow">RegaTora</p>
       <h1>Privacy Policy</h1>
-      <p class="subtitle">Last updated: April 5, 2026</p>
+      <p class="subtitle">Last updated: May 8, 2026</p>
       <p class="subtitle">Contact: <code>meir@rotstein.co.il</code></p>
     </section>
 
@@ -139,9 +139,10 @@
         <li>Installed launcher apps, so you can choose which apps to monitor.</li>
         <li>App usage events for apps you selected, so the app can detect when one of those apps is opened and trigger a learning reminder.</li>
         <li>Notification permission status, battery optimization status, and related system settings needed to keep reminders working reliably.</li>
-        <li>In-app preferences and state, such as selected apps, monitoring status, preferred learning track, saved learning positions, cooldown timing, and local trigger history.</li>
+        <li>In-app preferences and state, such as selected apps, monitoring status, disclosure acceptance status, preferred learning track, saved learning positions, cooldown timing, cached weekly reading data, and local trigger history.</li>
+        <li>In non-production tester-enabled builds, local debug logs that may include recent app monitoring and reminder activity, device/app version details, and error traces.</li>
       </ul>
-      <p>RegaTora also uses internet access to load Torah content from Sefaria.</p>
+      <p>RegaTora may also use internet access for limited supplemental data, such as weekly Torah-reading lookup or content/metadata fallback requests.</p>
     </section>
 
     <section class="card">
@@ -152,7 +153,8 @@
         <li>Show Torah learning reminders at the right time.</li>
         <li>Prevent reminders from firing too frequently.</li>
         <li>Save your preferences and continue your learning from the last saved position.</li>
-        <li>Load Torah content and related metadata from Sefaria.</li>
+        <li>Load or resolve limited supplemental Torah-calendar or metadata information when needed.</li>
+        <li>Support debugging when a tester explicitly chooses to export recent logs from a non-production tester build.</li>
       </ul>
     </section>
 
@@ -166,7 +168,8 @@
     <section class="card">
       <h2>4. Data Sharing</h2>
       <p>RegaTora does not currently sell or share your app usage history or selected app selections with third parties for advertising or marketing.</p>
-      <p>RegaTora fetches Torah content from Sefaria over the internet when needed. Your use of Sefaria-provided content may also be subject to Sefaria's own terms and privacy practices.</p>
+      <p>RegaTora currently bundles core Chumash, Rashi, and Tehilim content in the app for offline use. The app may still contact third-party services for limited supplemental functionality such as weekly Torah-reading lookup or content/metadata fallback. Your use of third-party provided content or calendar data may also be subject to those services' own terms and privacy practices.</p>
+      <p>In non-production tester-enabled builds, the app may also let you manually export recent local logs through WhatsApp or the Android share sheet. This export happens only when you actively choose to share logs.</p>
     </section>
 
     <section class="card">
@@ -177,8 +180,10 @@
         <li>monitoring enabled or disabled state</li>
         <li>disclosure acceptance status</li>
         <li>cooldown and trigger timing state</li>
+        <li>cached weekly Torah-reading payloads</li>
         <li>preferred learning track</li>
         <li>saved Chumash and Tehilim positions</li>
+        <li>recent local debug logs in non-production tester-enabled builds, which are rotated and trimmed on-device</li>
       </ul>
       <p>This information remains on the device until you change it, clear app data, or uninstall the app.</p>
     </section>
@@ -196,6 +201,7 @@
         <li>Change the list of selected apps.</li>
         <li>Revoke Usage Access or notification permissions in Android settings.</li>
         <li>Change battery optimization behavior in Android settings.</li>
+        <li>Choose whether or not to manually share recent logs when tester log-export tools are available in non-production tester builds.</li>
         <li>Clear app data or uninstall the app to remove locally stored data.</li>
       </ul>
     </section>
